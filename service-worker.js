@@ -12,12 +12,12 @@ self.addEventListener("install", (event) => {
         "/favicon.ico",
         "/logo192.png",
         "/logo512.png",
-        "/images/IMG_0.jpg",
-        "/images/IMG_1.jpg",
-        "/images/IMG_2.jpg",
-        "/images/IMG_3.jpg",
-        "/images/IMG_4.jpg",
-        "/images/IMG_5.jpg",
+        // "/images/IMG_0.jpg",
+        // "/images/IMG_1.jpg",
+        // "/images/IMG_2.jpg",
+        // "/images/IMG_3.jpg",
+        // "/images/IMG_4.jpg",
+        // "/images/IMG_5.jpg",
       ]);
     })
   );
