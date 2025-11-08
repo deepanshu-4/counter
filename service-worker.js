@@ -1,4 +1,4 @@
-const CACHE_NAME = "react-app-dynamic-cache-v2";
+const CACHE_NAME = "cache-v2";
 
 // INSTALL event – pre-cache the main shell files
 // self.addEventListener("install", (event) => {
@@ -34,17 +34,17 @@ self.addEventListener("install", (e) => {
     caches.open(CACHE_NAME).then(async (cache) => {
       const list = [
         "/",
-        "counter/index.html",
-        "counter/manifest.json",
-        "counter/favicon.ico",
-        "counter/logo192.png",
-        "counter/logo512.png",
-        "counter/images/IMG_0.jpg",
-        "counter/images/IMG_1.jpg",
-        "counter/images/IMG_2.jpg",
-        "counter/images/IMG_3.jpg",
-        "counter/images/IMG_4.jpg",
-        "counter/images/IMG_5.jpg",
+        "/counter/index.html",
+        "/counter/manifest.json",
+        "/counter/favicon.ico",
+        "/counter/logo192.png",
+        "/counter/logo512.png",
+        "/counter/images/IMG_0.jpg",
+        "/counter/images/IMG_1.jpg",
+        "/counter/images/IMG_2.jpg",
+        "/counter/images/IMG_3.jpg",
+        "/counter/images/IMG_4.jpg",
+        "/counter/images/IMG_5.jpg",
       ];
 
       console.log("ServiceWorker: Caching files:", list);
