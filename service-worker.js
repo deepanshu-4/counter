@@ -56,7 +56,7 @@ self.addEventListener("install", (e) => {
           try {
             ok = await cache.add(i);
           } catch (err) {
-            console.warn("sw: cache.add", i);
+            console.warn("sw: cache.add", i, err);
           }
         }
       }
