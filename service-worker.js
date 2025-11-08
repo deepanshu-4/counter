@@ -52,7 +52,7 @@ self.addEventListener("install", (e) => {
         ok = await cache.addAll(list);
       } catch (err) {
         console.error("sw: cache.addAll");
-        for (let i of c) {
+        for (let i of list) {
           try {
             ok = await cache.add(i);
           } catch (err) {
