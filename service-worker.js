@@ -34,17 +34,17 @@ self.addEventListener("install", (e) => {
     caches.open(CACHE_NAME).then(async (cache) => {
       const list = [
         "/",
-        "/index.html",
-        "/manifest.json",
-        "/favicon.ico",
-        "/logo192.png",
-        "/logo512.png",
-        // "/images/IMG_0.jpg",
-        // "/images/IMG_1.jpg",
-        // "/images/IMG_2.jpg",
-        // "/images/IMG_3.jpg",
-        // "/images/IMG_4.jpg",
-        // "/images/IMG_5.jpg",
+        "counter/index.html",
+        "counter/manifest.json",
+        "counter/favicon.ico",
+        "counter/logo192.png",
+        "counter/logo512.png",
+        "counter/images/IMG_0.jpg",
+        "counter/images/IMG_1.jpg",
+        "counter/images/IMG_2.jpg",
+        "counter/images/IMG_3.jpg",
+        "counter/images/IMG_4.jpg",
+        "counter/images/IMG_5.jpg",
       ];
 
       console.log("ServiceWorker: Caching files:", list);
@@ -62,6 +62,7 @@ self.addEventListener("install", (e) => {
       }
     })
   );
+  self.skipWaiting();
 });
 
 // ACTIVATE event – clean up old caches
