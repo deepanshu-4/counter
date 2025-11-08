@@ -47,7 +47,7 @@ self.addEventListener("install", (e) => {
         // "/images/IMG_5.jpg",
       ];
 
-      console.log("ServiceWorker: Caching files:", c.length, c);
+      console.log("ServiceWorker: Caching files:", list);
       try {
         ok = await cache.addAll(list);
       } catch (err) {
