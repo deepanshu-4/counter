@@ -1,31 +1,67 @@
 const CACHE_NAME = "react-app-dynamic-cache-v2";
 
 // INSTALL event – pre-cache the main shell files
-self.addEventListener("install", (event) => {
-  console.log("[ServiceWorker] Installing...");
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
+// self.addEventListener("install", (event) => {
+//   console.log("[ServiceWorker] Installing...");
+//   const list = [
+//     "/",
+//     "/index.html",
+//     "/manifest.json",
+//     "/favicon.ico",
+//     "/logo192.png",
+//     "/logo512.png",
+//     // "/images/IMG_0.jpg",
+//     // "/images/IMG_1.jpg",
+//     // "/images/IMG_2.jpg",
+//     // "/images/IMG_3.jpg",
+//     // "/images/IMG_4.jpg",
+//     // "/images/IMG_5.jpg",
+//   ];
+//   event.waitUntil(
+//     caches.open(CACHE_NAME).then((cache) => {
+//       try {
+//         return cache.addAll();
+//       } catch (err) {
+//         console.log("--->", err);
+//       }
+//     })
+//   );
+//   self.skipWaiting();
+// });
+
+self.addEventListener("install", (e) => {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then(async (cache) => {
+      const list = [
+        "/",
+        "/index.html",
+        "/manifest.json",
+        "/favicon.ico",
+        "/logo192.png",
+        "/logo512.png",
+        // "/images/IMG_0.jpg",
+        // "/images/IMG_1.jpg",
+        // "/images/IMG_2.jpg",
+        // "/images/IMG_3.jpg",
+        // "/images/IMG_4.jpg",
+        // "/images/IMG_5.jpg",
+      ];
+
+      console.log("ServiceWorker: Caching files:", c.length, c);
       try {
-        return cache.addAll([
-          "/",
-          "/index.html",
-          "/manifest.json",
-          "/favicon.ico",
-          "/logo192.png",
-          "/logo512.png",
-          // "/images/IMG_0.jpg",
-          // "/images/IMG_1.jpg",
-          // "/images/IMG_2.jpg",
-          // "/images/IMG_3.jpg",
-          // "/images/IMG_4.jpg",
-          // "/images/IMG_5.jpg",
-        ]);
+        ok = await cache.addAll(c);
       } catch (err) {
-        console.log("--->", err);
+        console.error("sw: cache.addAll");
+        for (let i of c) {
+          try {
+            ok = await cache.add(i);
+          } catch (err) {
+            console.warn("sw: cache.add", i);
+          }
+        }
       }
     })
   );
-  self.skipWaiting();
 });
 
 // ACTIVATE event – clean up old caches
