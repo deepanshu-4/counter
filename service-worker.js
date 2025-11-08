@@ -5,20 +5,24 @@ self.addEventListener("install", (event) => {
   console.log("[ServiceWorker] Installing...");
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll([
-        "/",
-        "/index.html",
-        "/manifest.json",
-        "/favicon.ico",
-        "/logo192.png",
-        "/logo512.png",
-        // "/images/IMG_0.jpg",
-        // "/images/IMG_1.jpg",
-        // "/images/IMG_2.jpg",
-        // "/images/IMG_3.jpg",
-        // "/images/IMG_4.jpg",
-        // "/images/IMG_5.jpg",
-      ]);
+      try {
+        return cache.addAll([
+          "/",
+          "/index.html",
+          "/manifest.json",
+          "/favicon.ico",
+          "/logo192.png",
+          "/logo512.png",
+          // "/images/IMG_0.jpg",
+          // "/images/IMG_1.jpg",
+          // "/images/IMG_2.jpg",
+          // "/images/IMG_3.jpg",
+          // "/images/IMG_4.jpg",
+          // "/images/IMG_5.jpg",
+        ]);
+      } catch (err) {
+        console.log("--->", err);
+      }
     })
   );
   self.skipWaiting();
