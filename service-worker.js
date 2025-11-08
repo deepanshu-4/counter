@@ -49,7 +49,7 @@ self.addEventListener("install", (e) => {
 
       console.log("ServiceWorker: Caching files:", c.length, c);
       try {
-        ok = await cache.addAll(c);
+        ok = await cache.addAll(list);
       } catch (err) {
         console.error("sw: cache.addAll");
         for (let i of c) {
